@@ -1,6 +1,9 @@
 package mirkoabozzi.U5S5L1;
 
-import mirkoabozzi.U5S5L1.entities.*;
+import mirkoabozzi.U5S5L1.entities.Drink;
+import mirkoabozzi.U5S5L1.entities.Menu;
+import mirkoabozzi.U5S5L1.entities.Pizza;
+import mirkoabozzi.U5S5L1.entities.Topping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -40,9 +43,14 @@ public class MenuConfiguration {
         return new Drink("Ichnusa", 80, 1, 0.33);
     }
 
+//    @Bean
+//    public Menu getMenu(List<Product> productList) {
+//        return new Menu(productList);
+//    }
+
     @Bean
-    public Menu getMenu(List<Product> productList) {
-        return new Menu(productList);
+    public Menu getMenu() {
+        return new Menu(List.of(getPizzaProsciutto(), getPizzaPatatine(), getDrinkCocaCola(), getBeer()));
     }
 
 }
