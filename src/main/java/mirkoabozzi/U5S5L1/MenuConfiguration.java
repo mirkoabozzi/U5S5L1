@@ -7,6 +7,7 @@ import mirkoabozzi.U5S5L1.entities.Topping;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -48,9 +49,26 @@ public class MenuConfiguration {
 //        return new Menu(productList);
 //    }
 
+//    @Bean
+//    public Menu getMenu() {
+//        return new Menu(List.of(getPizzaProsciutto(), getPizzaPatatine(), getDrinkCocaCola(), getBeer()));
+//    }
+
     @Bean
     public Menu getMenu() {
-        return new Menu(List.of(getPizzaProsciutto(), getPizzaPatatine(), getDrinkCocaCola(), getBeer()));
+        List<Pizza> pizzas = new ArrayList<>();
+        pizzas.add(getPizzaPatatine());
+        pizzas.add(getPizzaProsciutto());
+
+        List<Drink> drinks = new ArrayList<>();
+        drinks.add(getBeer());
+        drinks.add(getDrinkCocaCola());
+
+        List<Topping> toppings = new ArrayList<>();
+        toppings.add(getToppingPatatine());
+        toppings.add(getToppingProsciutto());
+
+        return new Menu(pizzas, toppings, drinks);
     }
 
 }

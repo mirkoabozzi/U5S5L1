@@ -1,6 +1,5 @@
 package mirkoabozzi.U5S5L1.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,14 +7,24 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 public class Menu {
-    private List<Product> product;
+    private List<Pizza> pizzaList;
+    private List<Topping> toppingList;
+    private List<Drink> drinkList;
+
+    public Menu(List<Pizza> pizzaList, List<Topping> toppingList, List<Drink> drinkList) {
+        this.pizzaList = pizzaList;
+        this.toppingList = toppingList;
+        this.drinkList = drinkList;
+    }
 
     @Override
     public String toString() {
         return "Menu{" +
-                "product=" + product +
+                "pizzaList=" + pizzaList +
+                ", toppingList=" + toppingList +
+                ", drinkList=" + drinkList +
                 '}';
     }
 }
